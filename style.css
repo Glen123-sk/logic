@@ -1,0 +1,208 @@
+:root {
+  --bg1: #141e30;
+  --bg2: #243b55;
+  --text: #e8f1ff;
+  --panel: rgba(255,255,255,0.08);
+  --border: rgba(255,255,255,0.18);
+  --accent: #00b4ff;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+  color: var(--text);
+  background: radial-gradient(circle at top left, #1b3d6d 0%, #0f1a2b 40%, #08101a 100%);
+}
+
+.app {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.header h1 { margin: 0; }
+.header p { margin: 0.5rem 0 1.3rem 0; color: #bcd4ff; }
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 990px) {
+  .grid { grid-template-columns: 280px 1fr 1fr; }
+}
+
+.panel {
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  padding: 1rem;
+  background: var(--panel);
+  box-shadow: 0 12px 20px rgba(0,0,0,0.35);
+}
+
+.panel h2 {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem 0;
+}
+
+label {
+  display: block;
+  margin: 0.7rem 0 0.25rem;
+  font-size: 0.9rem;
+}
+
+select, input[type='range'], input[type='color'], input[type='number'], input[type='text'] {
+  width: 100%;
+  margin-bottom: 0.65rem;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.24);
+  padding: 0.5rem;
+  background: rgba(255,255,255,0.08);
+  color: #ffffff;
+}
+
+input[type='checkbox'] {
+  margin-right: 0.5rem;
+  accent-color: #4db8ff;
+}
+
+button {
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 8px;
+  background: rgba(81, 142, 255, 0.55);
+  color: #fff;
+  padding: 0.45rem 0.8rem;
+  margin: 0.25rem 0.1rem 0.25rem 0;
+  transition: all .17s ease;
+}
+
+button:hover { transform: translateY(-1px); background: rgba(94, 160, 255, 0.68); }
+
+.code-actions { display: flex; flex-wrap: wrap; margin-bottom: 0.65rem; }
+
+.canvas {
+  display: grid;
+  place-items: center;
+  min-height: 320px;
+  border: 2px dashed rgba(255,255,255,0.2);
+  border-radius: 12px;
+  background: linear-gradient(145deg, rgba(255,255,255,0.04), rgba(20,42,80,0.12));
+}
+
+.all-shapes {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+  padding: 10px;
+  border: 1px dashed rgba(255,255,255,0.18);
+  border-radius: 10px;
+  background: rgba(13,26,49,0.38);
+}
+
+.hidden { display: none !important; }
+
+.shape {
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, #4f8cff 0%, #2892ee 100%);
+  border: 4px solid #244bff;
+  transition: all 0.25s ease;
+}
+
+.shape.star {
+  clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+.shape.triangle {
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+}
+
+.shape.cloud {
+  border-radius: 60% 45% 55% 50% / 55% 40% 65% 40%;
+}
+
+.shape-item {
+  color: #d5e2ff;
+  font-size: 0.83rem;
+}
+
+.presets-list .preset {
+  margin: 0.4rem 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.3rem;
+  border: 1px solid rgba(255,255,255,0.24);
+  padding: 0.45rem 0.6rem;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.08);
+}
+
+.code textarea {
+  width: 100%;
+  margin-top: 0.6rem;
+  border: 1px solid rgba(178, 205, 255, 0.55);
+  border-radius: 8px;
+  padding: 0.75rem;
+  background: #0f1a2b;
+  color: #c9dbff;
+  font-family: 'Courier New', monospace;
+  resize: vertical;
+}
+
+.share-url {
+  padding: 0.65rem;
+  font-size: 0.88rem;
+  word-break: break-all;
+  margin-top: 0.5rem;
+  color: #a0c4ff;
+  border: 1px solid rgba(150,202,255,0.58);
+  border-radius: 7px;
+  background: rgba(7, 17, 35, 0.62);
+}
+
+.footer {
+  margin-top: 1rem;
+  text-align: center;
+  color: #9eb6d8;
+}
+
+.pulse {
+  animation: pulse 1.6s ease-in-out infinite;
+}
+
+.spin {
+  animation: spin 2s linear infinite;
+}
+
+.bounce {
+  animation: bounce 1.2s ease-in-out infinite;
+}
+
+.float {
+  animation: float 2.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+  0%,100% { transform: translateY(0); }
+  40% { transform: translateY(-12px); }
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}

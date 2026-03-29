@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CSS Shape Visualizer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="header">
+      <h1>CSS Shape Visualizer Studio</h1>
+      <p>Explore shapes, colors, animation, presets, and real-time code with one app.</p>
+    </header>
+
+    <main class="grid">
+      <section class="panel controls">
+        <h2>Shape Controls</h2>
+
+        <label for="shapeSelect">Shape:</label>
+        <select id="shapeSelect" aria-label="Choose shape">
+          <option value="square">Square</option>
+          <option value="circle">Circle</option>
+          <option value="ellipse">Ellipse</option>
+          <option value="rounded">Rounded</option>
+          <option value="triangle">Triangle</option>
+          <option value="star">Star</option>
+          <option value="cloud">Cloud</option>
+        </select>
+
+        <label for="sizeRange">Size: <span id="sizeValue">180</span>px</label>
+        <input id="sizeRange" type="range" min="80" max="320" value="180" />
+
+        <label for="fillColor">Fill color:</label>
+        <input id="fillColor" type="color" value="#4f8cff" />
+
+        <label for="borderColor">Border color:</label>
+        <input id="borderColor" type="color" value="#244bff" />
+
+        <label for="borderWidth">Border width: <span id="borderValue">4</span>px</label>
+        <input id="borderWidth" type="range" min="0" max="14" value="4" />
+
+        <label><input id="gradientToggle" type="checkbox" /> Apply gradient fill</label>
+
+        <hr />
+
+        <h2>Animation</h2>
+
+        <label for="animationType">Animation style:</label>
+        <select id="animationType">
+          <option value="none">None</option>
+          <option value="pulse">Pulse</option>
+          <option value="spin">Spin</option>
+          <option value="bounce">Bounce</option>
+          <option value="float">Float</option>
+        </select>
+
+        <label for="animDuration">Duration: <span id="animDurationValue">1.2</span>s</label>
+        <input id="animDuration" type="range" min="0.2" max="4" step="0.1" value="1.2" />
+
+        <label for="animDelay">Delay: <span id="animDelayValue">0</span>s</label>
+        <input id="animDelay" type="range" min="0" max="2" step="0.05" value="0" />
+
+        <label for="animIteration">Iteration count:</label>
+        <input id="animIteration" type="number" min="1" max="99" value="infinite" placeholder="infinite" />
+
+        <hr />
+
+        <button id="allShapesBtn" type="button">Show All Shapes</button>
+
+        <h2>Presets</h2>
+        <div class="preset-row">
+          <input id="presetName" type="text" placeholder="Preset name" />
+          <button id="savePresetBtn" type="button">Save Preset</button>
+        </div>
+        <div id="presetsList" class="presets-list" aria-label="saved presets"></div>
+      </section>
+
+      <section class="panel preview">
+        <h2>Live Preview</h2>
+        <div class="canvas" role="img" aria-label="shape preview">
+          <div id="shape" class="shape"></div>
+        </div>
+        <div id="allShapesGrid" class="all-shapes hidden" aria-label="all shapes preview"></div>
+      </section>
+
+      <section class="panel code">
+        <h2>Generated CSS</h2>
+        <div class="code-actions">
+          <button id="copyCss">Copy CSS</button>
+          <button id="downloadCss">Download CSS</button>
+          <button id="liveApply">Apply edited CSS</button>
+          <button id="shareState">Generate Share Link</button>
+        </div>
+        <textarea id="cssCode" rows="14" spellcheck="false"></textarea>
+        <div id="shareUrl" class="share-url"></div>
+      </section>
+    </main>
+
+    <footer class="footer">Tip: adjust everything and watch the code update while learning CSS visually.</footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
